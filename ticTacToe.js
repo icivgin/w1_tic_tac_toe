@@ -48,10 +48,10 @@ function isCol() {
 }
 
 // Checks tie win
-function isTie () {
+function isDraw () {
     if(table[0][0].innerText != '-' && table[0][1].innerText != '-' && table[0][2].innerText != '-' && table[1][0].innerText != '-' && table[1][1].innerText != '-' && table[1][2].innerText != '-' && table[2][0].innerText != '-' && table[2][1].innerText != '-' && table[2][2].innerText != '-' && !winner) {
-        winner = 'It was a tie! Reset and play again.';
-        return 'Tie';
+        winner = 'It was a draw! Reset and play again.';
+        return 'Draw';
     }
 }
 
@@ -93,7 +93,7 @@ function isDia() {
 
 // Checks if winner
 function isWinner() {
-    if (isRow() || isCol() || isDia() || isTie()) {
+    if (isRow() || isCol() || isDia() || isDraw()) {
         alreadyWon = true;
         alert(winner);
         return winner;
