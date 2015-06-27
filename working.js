@@ -24,7 +24,7 @@ function isVal(x, y) {
     if (table[x][y].innerText == 'X') {
         return 'X';
     }
-    else if (table[x][y].innerText == 'Y') {
+    if (table[x][y].innerText == 'Y') {
         return 'Y';
     }
     else {
@@ -35,13 +35,9 @@ function isVal(x, y) {
 // Checks col win
 function isCol() {
     for(i = 0; i < 3; i++) {
-        if ((isVal(0, i) == 'X') && (isVal(1, i) == 'X') && (isVal(2, i) == 'X')) {
-            winner = 'X';
-            return 'X';
-        }
-        else if ((isVal(0, i) == 'Y') && (isVal(1, i) == 'Y') && (isVal(2, i) == 'Y')) {
-            winner = 'Y';
-            return 'Y';
+        if (isVal(0, i) && isVal(1, i) && isVal(2, i)) {
+            winner = isVal(0, i);
+            return true;
         }
     }
     return false;
@@ -50,13 +46,9 @@ function isCol() {
 // Checks row win
 function isRow() {
     for(i = 0; i < 3; i++) {
-        if ((isVal(i, 0) == 'X') && (isVal(i, 1) == 'X') && (isVal(i, 2) == 'X')) {
-        	winner = 'X';
-            return 'X';
-        }
-        else if ((isVal(i, 0) == 'Y') && (isVal(i, 1) == 'Y') && (isVal(i, 2) == 'Y')) {
-        	winner = 'Y';
-            return 'Y';
+        if (isVal(i, 0) && isVal(i, 1) && isVal(i, 2)) {
+            winner = isVal(i, 0);
+            return true;
         }
     }
     return false;
@@ -64,21 +56,13 @@ function isRow() {
 
 // Checks diagonal win 
 function isDia() {
-    if ((isVal(0, 0) == 'X') && (isVal(1, 1) == 'X') && (isVal(2, 2) == 'X')) {
-        winner = 'X';
-        return 'X';
+    if (isVal(0, 0) && isVal(1, 1) && isVal(2, 2)) {
+        winner = isVal(0, 0);
+        return true;
     }
-    else if ((isVal(2, 0) == 'X') && (isVal(1, 1) == 'X') && (isVal(0, 2) == 'X')){
-        winner = 'X';
-        return 'X';
-    }
-    else if ((isVal(0, 0) == 'Y') && (isVal(1, 1) == 'Y') && (isVal(2, 2) == 'Y')) {
-        winner = 'Y';
-        return 'Y';
-    }
-    else if ((isVal(2, 0) == 'Y') && (isVal(1, 1) == 'Y') && (isVal(0, 2) == 'Y')){
-        winner = 'Y';
-        return 'Y';
+    else if (isVal(2, 0) && isVal(1, 1) && isVal(0, 2)){
+        winner = isVal(2, 0);
+        return true;
     }
     return false;
 }
@@ -86,7 +70,7 @@ function isDia() {
 // Checks if winner
 function isWinner() {
     if (isRow() || isCol() || isDia()) {
-        alert('The winner is ' + winner);
+        alert(winner);
         return winner;
     }
     else {
@@ -143,18 +127,10 @@ for (i=0; i<9; i++) {
         }
         if(isWinner()) {
             return winner;
+            break;
         }
     }
 }
-
-// Reset
-	reset.addEventListener('click', function () {
-		for (i = 0; i < 3; i++) {
-			for (j = 0; j < 3; j++) {
-				table[i][j].innerText = '-';
-			}
-		}
-	});
 
 
 // function playGame() {

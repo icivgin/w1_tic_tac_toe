@@ -3,6 +3,24 @@
 }
 
 .box {
-  border: 1px solid black;
+  border: 1px solid #808080;
   height: 150px;
+  background-color: #F0F0F0;
+}
+.box > h1 {
+	text-align: center;
+	color: red;
+}
+.display-table{
+    display: table;
+    table-layout: fixed;
+}
+
+.display-cell{
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+.btnpad {
+	margin-top:15px;
 }
