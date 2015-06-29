@@ -1,6 +1,13 @@
 /*Header*/
 
+body {
+  background-color: #004F63;
+  color: #FC8719;
+}
 
+hr {
+  border-color: #FC8719;
+}
 /*Footer*/
 
 
@@ -9,20 +16,20 @@
   margin-top: 10px;
 }
 .box {
-  border: 1px solid #808080;
+  border: 1px solid #F0F0F0;
   height: 150px;
-  background-color: #F0F0F0;
+  background-color: #808080;
 }
 .box > h1 {
   text-align: center;
-  color: red;
+  color: #FC8719;
 }
 .display-table{
     display: table;
     table-layout: fixed;
 }
 
-.display-cell{
+.display-cell {
     display: table-cell;
     vertical-align: middle;
     float: none;
@@ -37,6 +44,12 @@
 /*Buttons*/
 .btnpad {
   margin-top:15px;
+}
+.btn-default {
+  background-color: #808080;
+  color: #FC8719;
+  border: 1px solid #F0F0F0;
+  padding: 5px 50px 5px 50px;
 }
 
 @media screen and (max-width: 750px) {
